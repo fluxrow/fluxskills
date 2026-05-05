@@ -1,0 +1,93 @@
+name: 🧠 New skill submission
+description: Submit a new skill to the FluxSkills library
+labels: ["skill-submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Submit a new skill to be added to the library. Make sure your skill.json follows the [schema](../schema/skill.schema.json) before submitting.
+
+  - type: input
+    id: skill_name
+    attributes:
+      label: Skill name
+      description: In SKILL-UPPERCASE-KEBAB format
+      placeholder: SKILL-MY-NEW-SKILL
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Dev
+        - QA
+        - Marketing
+        - Ops
+    validations:
+      required: true
+
+  - type: input
+    id: slash_command
+    attributes:
+      label: Slash command
+      description: The command users will type to invoke this skill
+      placeholder: /skill my-new-skill
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: platforms
+    attributes:
+      label: Supported platforms
+      options:
+        - label: Claude Code
+        - label: claude.ai
+        - label: AntiGravity
+        - label: Codex
+        - label: Gemini
+        - label: ChatGPT
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What does this skill do? (max 200 characters — this appears on the skill card)
+      placeholder: Enforces X behavior before doing Y. Use when you need Z.
+    validations:
+      required: true
+
+  - type: textarea
+    id: when_to_use
+    attributes:
+      label: When to use
+      description: One sentence explaining when to invoke this skill
+      placeholder: Before starting any new feature that requires...
+    validations:
+      required: true
+
+  - type: textarea
+    id: skill_json
+    attributes:
+      label: skill.json
+      description: Paste the complete skill.json following the schema. It will be validated by CI on the PR.
+      render: json
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: My skill.json follows the schema at schema/skill.schema.json
+          required: true
+        - label: I tested the command on at least one supported platform
+          required: true
+        - label: The description is under 200 characters
+          required: true
+        - label: Tags are accurate and help users find this skill
+          required: true
+        - label: I will open a PR with the actual files after this issue is reviewed
+          required: true

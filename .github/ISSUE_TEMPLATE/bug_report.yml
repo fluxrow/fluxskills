@@ -1,0 +1,103 @@
+name: 🐛 Bug report
+description: Something is wrong with a skill or workflow
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug. Please fill in as much detail as possible.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: A clear description of the problem.
+      placeholder: The skill command does not activate the expected behavior...
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: How do we reproduce the issue?
+      placeholder: |
+        1. Copy the command from the skill card
+        2. Paste into Claude Code
+        3. Run the command
+        4. See unexpected behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What should have happened?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: What actually happened?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Skill / Workflow category
+      description: Which category is the affected skill or workflow in?
+      options:
+        - Dev
+        - QA
+        - Marketing
+        - Ops
+        - Workflow (cross-category)
+        - Not sure
+    validations:
+      required: true
+
+  - type: input
+    id: skill_name
+    attributes:
+      label: Skill or workflow name
+      placeholder: SKILL-ARCHITECT-FIRST
+    validations:
+      required: true
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: AI platform
+      description: Which AI tool were you using when the bug occurred?
+      options:
+        - Claude Code
+        - claude.ai
+        - AntiGravity
+        - Codex
+        - Gemini
+        - ChatGPT
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Screenshots or logs
+      description: Paste any relevant output, error messages, or screenshots here.
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues and this is not a duplicate
+          required: true
+        - label: I tested with the exact command from the skill.json file
+          required: true
+        - label: I am using a supported platform for this skill
+          required: true

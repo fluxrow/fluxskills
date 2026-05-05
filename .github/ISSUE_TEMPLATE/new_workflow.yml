@@ -1,0 +1,94 @@
+name: 🔄 New workflow submission
+description: Submit a new workflow to the FluxSkills library
+labels: ["workflow-submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Submit a new workflow. A workflow must have at least 3 steps, 2 elicitation questions, and a command_template that uses `{variable}` placeholders. See [schema](../schema/workflow.schema.json).
+
+  - type: input
+    id: workflow_name
+    attributes:
+      label: Workflow name
+      description: A clear, action-oriented name
+      placeholder: Build a production-ready REST API
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Dev
+        - QA
+        - Marketing
+        - Ops
+    validations:
+      required: true
+
+  - type: input
+    id: estimated_time
+    attributes:
+      label: Estimated time
+      placeholder: 4–8 hours
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What does this workflow accomplish? (max 300 characters)
+    validations:
+      required: true
+
+  - type: textarea
+    id: elicitation
+    attributes:
+      label: Elicitation questions
+      description: List the questions the workflow asks before generating the command (min 2)
+      placeholder: |
+        1. What is the project name?
+        2. What tech stack are you using?
+        3. Do you need authentication?
+    validations:
+      required: true
+
+  - type: textarea
+    id: skills_used
+    attributes:
+      label: Skills used
+      description: Which FluxSkills skills does this workflow orchestrate?
+      placeholder: |
+        - SKILL-ARCHITECT-FIRST
+        - SKILL-TECH-SEARCH
+        - SKILL-CHECKLIST-RUNNER
+
+  - type: textarea
+    id: workflow_json
+    attributes:
+      label: workflow.json
+      description: Paste the complete workflow.json following the schema.
+      render: json
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: My workflow.json follows the schema at schema/workflow.schema.json
+          required: true
+        - label: The workflow has at least 3 steps
+          required: true
+        - label: The workflow has at least 2 elicitation questions
+          required: true
+        - label: command_template uses {variable} placeholders matching the elicitation IDs
+          required: true
+        - label: I tested the generated command on at least one AI platform
+          required: true
+        - label: I will open a PR with the actual files after this issue is reviewed
+          required: true
