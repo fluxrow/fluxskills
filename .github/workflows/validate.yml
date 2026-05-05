@@ -6,6 +6,19 @@ on:
       - 'skills/**'
       - 'workflows/**'
       - 'schema/**'
+      - 'scripts/**'
+      - '.github/workflows/validate.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'skills/**'
+      - 'workflows/**'
+      - 'schema/**'
+      - 'scripts/**'
+      - '.github/workflows/validate.yml'
+
+permissions:
+  contents: read
 
 jobs:
   validate:
@@ -20,8 +33,20 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install dependencies
-        run: npm install ajv
+      - name: Install validator dependencies
+        run: npm install --no-save --no-audit --no-fund ajv@8
+
+      - name: Check JSON syntax
+        run: |
+          set -e
+          fail=0
+          for f in $(find skills workflows schema -name '*.json' 2>/dev/null); do
+            if ! node -e "JSON.parse(require('fs').readFileSync('$f','utf8'))" 2>/dev/null; then
+              echo "::error file=$f::Invalid JSON syntax"
+              fail=1
+            fi
+          done
+          exit $fail
 
       - name: Validate schemas
         run: node scripts/validate-schema.js
