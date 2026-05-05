@@ -1,16 +1,22 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import { Navbar, type Tab } from "@/components/Navbar";
+import { SkillsLibrary } from "@/components/SkillsLibrary";
+import { WorkflowsSection } from "@/components/WorkflowsSection";
+import { CommunitySection } from "@/components/CommunitySection";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+const Index = () => {
+  const [tab, setTab] = useState<Tab>("skills");
+
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
+    <div className="min-h-screen bg-background pb-20 md:pb-0">
+      <Navbar active={tab} onChange={setTab} />
+      <main className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
+        {tab === "skills" && <SkillsLibrary />}
+        {tab === "workflows" && <WorkflowsSection />}
+        {tab === "community" && <CommunitySection />}
+      </main>
     </div>
   );
 };
-
-const Index = PlaceholderIndex;
 
 export default Index;
