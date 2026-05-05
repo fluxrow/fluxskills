@@ -1,0 +1,27 @@
+name: Validate Skills & Workflows
+
+on:
+  pull_request:
+    paths:
+      - 'skills/**'
+      - 'workflows/**'
+      - 'schema/**'
+
+jobs:
+  validate:
+    name: Schema validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install ajv
+
+      - name: Validate schemas
+        run: node scripts/validate-schema.js
