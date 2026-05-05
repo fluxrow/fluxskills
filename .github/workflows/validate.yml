@@ -49,4 +49,4 @@ jobs:
           exit $fail
 
       - name: Validate schemas
-        run: node scripts/validate-schema.js
+        run: node scripts/validate-schema.cjs
