@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Sparkles } from "lucide-react";
+import logo from "@/assets/logo-fluxskills.png";
 
 export type Tab = "skills" | "workflows" | "community";
 
@@ -20,9 +20,7 @@ export function Navbar({ active, onChange }: Props) {
       <header className="sticky top-0 z-30 border-b border-border bg-background/80 backdrop-blur-md">
         <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 sm:px-6">
           <a href="/" className="flex items-center gap-2">
-            <span className="flex h-7 w-7 items-center justify-center rounded-md bg-primary text-primary-foreground">
-              <Sparkles className="h-4 w-4" />
-            </span>
+            <img src={logo} alt="FluxSkills logo" className="h-7 w-7 rounded-md" />
             <span className="font-mono text-sm font-semibold tracking-tight">FluxSkills</span>
           </a>
 
