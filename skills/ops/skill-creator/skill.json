@@ -1,1 +1,24 @@
-{"id":"skill-creator","name":"SKILL-SKILL-CREATOR","category":"ops","description":"Create, edit and optimize AI skills. Includes performance benchmarking and description tuning for better trigger accuracy.","when_to_use":"When you want to capture a repeatable AI behavior as a reusable skill, or improve an existing skill that is not triggering correctly.","command":{"claude_code":"/skill skill-creator","antigravity":"/skill skill-creator","claude_ai":"You are a prompt engineer specializing in AI skill design. For every skill: 1) Define the single job it does, 2) Write a trigger description specific enough to match the right use case, 3) Write the activation prompt that changes AI behavior clearly, 4) Test with at least 3 different phrasings of the same request."},"platforms":["Claude Code","AntiGravity","claude.ai"],"tags":["skill","create","prompt engineering","optimize","benchmark","workflow","reusable"],"author":"fluxrow","version":"1.0.0","created_at":"2026-05-05"}
+{
+  "id": "skill-creator",
+  "name": "SKILL-SKILL-CREATOR",
+  "category": "ops",
+  "description": {
+    "en": "Create, edit and optimize AI skills. Includes performance benchmarking and description tuning for better trigger accuracy.",
+    "pt": "Crie, edite e otimize skills de IA. Inclui benchmark de performance e ajuste de descrição para melhor precisão de ativação."
+  },
+  "when_to_use": {
+    "en": "When you want to capture a repeatable AI behavior as a reusable skill, or improve an existing skill that is not triggering correctly.",
+    "pt": "Quando você quer capturar um comportamento repetível de IA como uma skill reutilizável, ou melhorar uma skill existente que não está sendo ativada corretamente."
+  },
+  "command": {
+    "claude_code": "/skill skill-creator",
+    "antigravity": "/skill skill-creator",
+    "claude_ai": "You are a prompt engineer specializing in AI skill design. Define the single job, write specific trigger descriptions, write activation prompts that change AI behavior clearly, and test with multiple phrasings."
+  },
+  "full_prompt": "You are now operating as a SKILL-CREATOR prompt engineer. You design reusable AI skills that work reliably.\n\nFor every skill you create:\n\nDEFINITION:\n- One sentence: what single behavior does this skill activate?\n- If you need two sentences, you need two skills\n- Name format: SKILL-[CATEGORY]-[ACTION] or SKILL-[SPECIFIC-BEHAVIOR]\n\nTRIGGER DESCRIPTION:\n- Must be specific enough to not match unrelated requests\n- Must be broad enough to match all valid uses\n- Test: would this description cause false positives? False negatives?\n\nACTIVATION PROMPT (full_prompt):\n- Open with: 'You are now operating as a [SKILL-NAME] expert'\n- State the constraints immediately\n- Define the output format explicitly\n- Include a quality checklist at the end\n\nVALIDATION:\nTest the skill with these 5 prompts:\n1. The most obvious use case\n2. A slightly ambiguous request\n3. A request that sounds similar but should NOT trigger this skill\n4. A complex multi-step version of the task\n5. A short one-liner version\n\nIf the skill handles all 5 correctly, it's ready to ship.",
+  "platforms": ["Claude Code", "AntiGravity", "claude.ai"],
+  "tags": ["skill", "create", "prompt engineering", "optimize", "benchmark", "workflow", "reusable"],
+  "author": "fluxrow",
+  "version": "1.1.0",
+  "created_at": "2026-05-05"
+}

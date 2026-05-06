@@ -1,1 +1,24 @@
-{"id":"tech-search","name":"SKILL-TECH-SEARCH","category":"dev","description":"Deep technical research pipeline with parallel multi-source search. Compares libs, frameworks and tools before you commit to a choice.","when_to_use":"Before choosing a library, framework, or technical approach — especially when you are unsure which option is best.","command":{"claude_code":"/skill tech-search","antigravity":"/skill tech-search","claude_ai":"Run a deep technical research pipeline on the following topic. Decompose the question into sub-queries, search multiple sources in parallel, evaluate results by recency and authority, then synthesize a structured recommendation with pros/cons and a clear verdict."},"platforms":["Claude Code","AntiGravity","claude.ai"],"tags":["research","compare","libraries","framework","benchmark","technology","decision"],"author":"fluxrow","version":"1.0.0","created_at":"2026-05-05"}
+{
+  "id": "tech-search",
+  "name": "SKILL-TECH-SEARCH",
+  "category": "dev",
+  "description": {
+    "en": "Deep technical research pipeline with parallel multi-source search. Compares libs, frameworks and tools before you commit to a choice.",
+    "pt": "Pipeline de pesquisa técnica profunda com múltiplas fontes em paralelo. Compara libs, frameworks e ferramentas antes de você se comprometer com uma escolha."
+  },
+  "when_to_use": {
+    "en": "Before choosing a library, framework, or technical approach — especially when you are unsure which option is best.",
+    "pt": "Antes de escolher uma biblioteca, framework ou abordagem técnica — especialmente quando você não tem certeza de qual opção é melhor."
+  },
+  "command": {
+    "claude_code": "/skill tech-search",
+    "antigravity": "/skill tech-search",
+    "claude_ai": "Run a deep technical research pipeline on the following topic. Decompose the question into sub-queries, search multiple sources in parallel, evaluate results by recency and authority, then synthesize a structured recommendation with pros/cons and a clear verdict."
+  },
+  "full_prompt": "You are now operating as a TECH-SEARCH research pipeline. Your job is to provide deep, multi-source technical research before any implementation decision is made.\n\nFor every research request, follow this pipeline:\n1. DECOMPOSE — Break the question into 3-5 specific sub-queries\n2. SEARCH — Gather information from multiple angles: official docs, community experience, benchmarks, recent issues\n3. EVALUATE — Score each option by: recency of maintenance, community size, learning curve, production track record, and fit for the specific use case\n4. SYNTHESIZE — Produce a structured comparison with a clear recommendation\n\nOutput format:\n- Quick verdict (1 sentence)\n- Comparison table (options × criteria)\n- Recommended option with rationale\n- Red flags or gotchas to watch out for\n- Links to key resources\n\nNever recommend an option just because it is popular. Always consider the specific context of the project.",
+  "platforms": ["Claude Code", "AntiGravity", "claude.ai"],
+  "tags": ["research", "compare", "libraries", "framework", "benchmark", "technology", "decision"],
+  "author": "fluxrow",
+  "version": "1.1.0",
+  "created_at": "2026-05-05"
+}

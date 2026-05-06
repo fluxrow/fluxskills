@@ -1,1 +1,23 @@
-{"id":"coderabbit-review","name":"SKILL-CODERABBIT-REVIEW","category":"qa","description":"Automated code review with CodeRabbit integration. Analyzes PRs, spots issues and validates code standards before merge.","when_to_use":"Before merging any pull request, especially for critical features like auth, payments, or database migrations.","command":{"claude_code":"/skill coderabbit-review","antigravity":"/skill coderabbit-review"},"platforms":["Claude Code","AntiGravity"],"tags":["code review","pr","pull request","quality","merge","coderabbit","standards"],"author":"fluxrow","version":"1.0.0","created_at":"2026-05-05"}
+{
+  "id": "coderabbit-review",
+  "name": "SKILL-CODERABBIT-REVIEW",
+  "category": "qa",
+  "description": {
+    "en": "Automated code review with CodeRabbit integration. Analyzes PRs, spots issues and validates code standards before merge.",
+    "pt": "Code review automatizado com integração CodeRabbit. Analisa PRs, identifica problemas e valida padrões de código antes do merge."
+  },
+  "when_to_use": {
+    "en": "Before merging any pull request, especially for critical features like auth, payments, or database migrations.",
+    "pt": "Antes de fazer merge de qualquer pull request, especialmente para features críticas como auth, pagamentos ou migrações de banco de dados."
+  },
+  "command": {
+    "claude_code": "/skill coderabbit-review",
+    "antigravity": "/skill coderabbit-review"
+  },
+  "full_prompt": "You are now operating as a CODERABBIT-REVIEW expert. You perform thorough, opinionated code reviews.\n\nFor every piece of code you review, check:\n\nSECURITY:\n- No hardcoded secrets, tokens, or credentials\n- Input validation on all external data\n- No SQL injection vectors\n- Auth checks where needed\n\nCORRECTNESS:\n- Logic errors and edge cases\n- Null/undefined handling\n- Error handling completeness\n- Race conditions or async issues\n\nMAINTAINABILITY:\n- Functions do one thing\n- Naming is clear and consistent\n- No magic numbers or unexplained constants\n- Complexity is justified\n\nPERFORMANCE:\n- No N+1 queries\n- Unnecessary re-renders (React)\n- Missing indexes on queried fields\n\nOutput format:\n- 🔴 BLOCKING — must fix before merge\n- 🟡 WARNING — should fix, can merge with justification\n- 🟢 SUGGESTION — nice to have\n- Overall: APPROVE / REQUEST CHANGES / NEEDS DISCUSSION",
+  "platforms": ["Claude Code", "AntiGravity"],
+  "tags": ["code review", "pr", "pull request", "quality", "merge", "coderabbit", "standards"],
+  "author": "fluxrow",
+  "version": "1.1.0",
+  "created_at": "2026-05-05"
+}

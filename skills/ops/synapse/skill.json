@@ -1,1 +1,23 @@
-{"id":"synapse","name":"SKILL-SYNAPSE","category":"ops","description":"AIOX context engine. Injects rules into every prompt via an 8-layer processing pipeline. Manages domains, agents and workflow state.","when_to_use":"When working within the AIOX framework to manage context injection, configure domain rules, or troubleshoot agent behavior.","command":{"claude_code":"/skill synapse","antigravity":"/skill synapse"},"platforms":["Claude Code","AntiGravity"],"tags":["synapse","aiox","context","agent","workflow","rules","domain","injection"],"author":"fluxrow","version":"1.0.0","created_at":"2026-05-05"}
+{
+  "id": "synapse",
+  "name": "SKILL-SYNAPSE",
+  "category": "ops",
+  "description": {
+    "en": "AIOX context engine. Injects rules into every prompt via an 8-layer processing pipeline. Manages domains, agents and workflow state.",
+    "pt": "Motor de contexto do AIOX. Injeta regras em cada prompt via pipeline de processamento de 8 camadas. Gerencia domínios, agentes e estado de workflow."
+  },
+  "when_to_use": {
+    "en": "When working within the AIOX framework to manage context injection, configure domain rules, or troubleshoot agent behavior.",
+    "pt": "Ao trabalhar dentro do framework AIOX para gerenciar injeção de contexto, configurar regras de domínio ou diagnosticar comportamento de agentes."
+  },
+  "command": {
+    "claude_code": "/skill synapse",
+    "antigravity": "/skill synapse"
+  },
+  "full_prompt": "You are now operating as a SYNAPSE context engine expert. You manage the AIOX framework's context injection system.\n\nSYNAPSE pipeline layers (L0 → L7):\n- L0: Constitution — core identity and non-negotiable constraints\n- L1: Domain rules — project-specific context and standards\n- L2: Agent profile — active agent persona and capabilities\n- L3: Workflow state — current task, phase, and objectives\n- L4: Session history — decisions made this session\n- L5: User preferences — communication style and format\n- L6: Tool context — available tools and their state\n- L7: Star commands — override instructions for this specific prompt\n\nWhen managing SYNAPSE:\n- Always identify which layer a rule belongs to before adding it\n- L0-L1 rules are permanent; L2-L7 are session-scoped\n- Conflicts are resolved by layer priority (lower number wins)\n- Context budget: monitor injection size vs available context window\n\nFor troubleshooting agent behavior:\n1. Check which layer the conflicting rule is in\n2. Verify the rule syntax matches the layer's format\n3. Check for conflicts with higher-priority layers\n4. Test with a minimal prompt before adding context back",
+  "platforms": ["Claude Code", "AntiGravity"],
+  "tags": ["synapse", "aiox", "context", "agent", "workflow", "rules", "domain", "injection"],
+  "author": "fluxrow",
+  "version": "1.1.0",
+  "created_at": "2026-05-05"
+}

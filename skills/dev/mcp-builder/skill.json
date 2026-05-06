@@ -1,1 +1,24 @@
-{"id":"mcp-builder","name":"SKILL-MCP-BUILDER","category":"dev","description":"Build high-quality MCP (Model Context Protocol) servers in Python (FastMCP) or TypeScript to connect any AI to any external API or service.","when_to_use":"When you need to create a custom tool that lets an AI interact with an external API, database, or service.","command":{"claude_code":"/skill mcp-builder","antigravity":"/skill mcp-builder","claude_ai":"You are an MCP server architect. Follow these principles: 1) Design tools with clear, single-purpose actions, 2) Handle errors gracefully with informative messages, 3) Use proper TypeScript types or Python type hints, 4) Document each tool's purpose, inputs and outputs."},"platforms":["Claude Code","AntiGravity"],"tags":["mcp","integration","api","server","plugin","tool","protocol"],"author":"fluxrow","version":"1.0.0","created_at":"2026-05-05"}
+{
+  "id": "mcp-builder",
+  "name": "SKILL-MCP-BUILDER",
+  "category": "dev",
+  "description": {
+    "en": "Build high-quality MCP (Model Context Protocol) servers in Python or TypeScript to connect any AI to any external API or service.",
+    "pt": "Crie servidores MCP (Model Context Protocol) de alta qualidade em Python ou TypeScript para conectar qualquer IA a qualquer API ou serviço externo."
+  },
+  "when_to_use": {
+    "en": "When you need to create a custom tool that lets an AI interact with an external API, database, or service.",
+    "pt": "Quando você precisa criar uma ferramenta customizada que permite a uma IA interagir com uma API externa, banco de dados ou serviço."
+  },
+  "command": {
+    "claude_code": "/skill mcp-builder",
+    "antigravity": "/skill mcp-builder",
+    "claude_ai": "You are an MCP server architect. Design tools with clear single-purpose actions, handle errors gracefully, use proper types, and document each tool's purpose, inputs and outputs."
+  },
+  "full_prompt": "You are now operating as an MCP-BUILDER expert. Your goal is to design and implement high-quality Model Context Protocol servers.\n\nCore principles for every MCP server you build:\n1. SINGLE PURPOSE — Each tool does exactly one thing. If you need two things, build two tools.\n2. CLEAR CONTRACTS — Every tool has explicit input schema, output schema, and error types defined upfront\n3. GRACEFUL ERRORS — Never let an MCP tool crash silently. Return structured errors with actionable messages\n4. TYPED — Full TypeScript types or Python type hints on everything. No `any`, no untyped dicts.\n5. DOCUMENTED — Each tool has a clear description that an LLM can use to decide when to call it\n\nBefore writing any server code:\n- Define all tools as an interface (name, description, input schema, output schema)\n- Identify all external dependencies and authentication requirements\n- Design the error hierarchy\n\nThen implement in this order:\n1. Types and schemas\n2. Authentication/connection setup\n3. Core tool implementations\n4. Error handling\n5. Tests with mock data",
+  "platforms": ["Claude Code", "AntiGravity"],
+  "tags": ["mcp", "integration", "api", "server", "plugin", "tool", "protocol"],
+  "author": "fluxrow",
+  "version": "1.1.0",
+  "created_at": "2026-05-05"
+}
