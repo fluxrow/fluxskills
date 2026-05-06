@@ -1,172 +1,37 @@
 export type Category = "dev" | "qa" | "marketing" | "ops";
+export type Lang = "en" | "pt";
+
+export interface SkillCommand {
+  claude_code?: string;
+  antigravity?: string;
+  codex?: string;
+  claude_ai?: string;
+}
 
 export interface Skill {
   id: string;
   name: string;
   category: Category;
-  description: string;
-  command: string;
-  full_command: string;
+  description: Record<Lang, string>;
+  when_to_use: Record<Lang, string>;
+  command: SkillCommand;
+  full_prompt: string;
   platforms: string[];
   tags: string[];
+  author?: string;
+  version?: string;
+  created_at?: string;
 }
 
-export const SKILLS: Skill[] = [
-  {
-    id: "architect-first",
-    name: "SKILL-ARCHITECT-FIRST",
-    category: "dev",
-    description:
-      "Enforces architecture and documentation BEFORE any code. Never starts implementing without a complete validated design.",
-    command: "/skill architect-first",
-    full_command: "Read and apply: /aios-core/.claude/skills/architect-first/SKILL.md",
-    platforms: ["Claude Code", "AntiGravity", "Codex"],
-    tags: ["architecture", "planning", "feature", "refactor"],
-  },
-  {
-    id: "tech-search",
-    name: "SKILL-TECH-SEARCH",
-    category: "dev",
-    description:
-      "Deep technical research with parallel multi-source pipeline. Compares libs, frameworks and solutions before you commit.",
-    command: "/skill tech-search",
-    full_command: "Read and apply: /aios-core/.claude/skills/tech-search/SKILL.md",
-    platforms: ["Claude Code", "AntiGravity", "Codex", "claude.ai"],
-    tags: ["research", "compare", "technology", "libraries", "benchmark"],
-  },
-  {
-    id: "mcp-builder",
-    name: "SKILL-MCP-BUILDER",
-    category: "dev",
-    description:
-      "Build MCP (Model Context Protocol) servers in Python or TypeScript to connect any AI to any external API or service.",
-    command: "/skill mcp-builder",
-    full_command: "Read and apply: /aios-core/.claude/skills/mcp-builder/SKILL.md",
-    platforms: ["Claude Code", "AntiGravity"],
-    tags: ["mcp", "integration", "api", "server", "plugin"],
-  },
-  {
-    id: "checklist-runner",
-    name: "SKILL-CHECKLIST-RUNNER",
-    category: "qa",
-    description:
-      "Validate any work against a .md checklist. Yolo (autonomous) or interactive mode. Emits pass/fail/partial verdict.",
-    command: "/skill checklist-runner",
-    full_command: "Read and apply: /aios-core/.claude/skills/checklist-runner/SKILL.md",
-    platforms: ["Claude Code", "AntiGravity", "Codex", "claude.ai"],
-    tags: ["validate", "checklist", "quality", "gate", "review", "deploy"],
-  },
-  {
-    id: "coderabbit-review",
-    name: "SKILL-CODERABBIT-REVIEW",
-    category: "qa",
-    description:
-      "Automated code review with CodeRabbit. Analyzes PRs, spots issues and validates code standards before merge.",
-    command: "/skill coderabbit-review",
-    full_command: "Read and apply: /aios-core/.claude/skills/coderabbit-review/SKILL.md",
-    platforms: ["Claude Code", "AntiGravity"],
-    tags: ["code review", "pr", "pull request", "quality", "merge"],
-  },
-  {
-    id: "skill-creator",
-    name: "SKILL-SKILL-CREATOR",
-    category: "ops",
-    description:
-      "Create, edit and optimize skills. Benchmarks performance and adjusts description for better trigger accuracy.",
-    command: "/skill skill-creator",
-    full_command: "Read and apply: /aios-core/.claude/skills/skill-creator/SKILL.md",
-    platforms: ["Claude Code", "AntiGravity", "claude.ai"],
-    tags: ["create skill", "optimize", "prompt", "benchmark", "workflow"],
-  },
-  {
-    id: "synapse",
-    name: "SKILL-SYNAPSE",
-    category: "ops",
-    description:
-      "AIOX context engine. Injects rules into every prompt via 8-layer pipeline. Manages domains, agents and workflow state.",
-    command: "/skill synapse",
-    full_command: "Read and apply: /aios-core/.claude/skills/synapse/SKILL.md",
-    platforms: ["Claude Code", "AntiGravity"],
-    tags: ["synapse", "context", "aiox", "agent", "workflow", "rules"],
-  },
-  {
-    id: "content-scale",
-    name: "SKILL-CONTENT-SCALE",
-    category: "marketing",
-    description:
-      "Create and systematize content production at scale for Instagram, YouTube, TikTok and LinkedIn. Editorial calendar and batch posts.",
-    command: "/skill content-scale",
-    full_command: "Read and apply: /mnt/skills/user/content-scale/SKILL.md",
-    platforms: ["claude.ai"],
-    tags: ["marketing", "content", "instagram", "youtube", "posts", "copywriting"],
-  },
-  {
-    id: "performance-ads",
-    name: "SKILL-PERFORMANCE-ADS",
-    category: "marketing",
-    description:
-      "Create and optimize paid ads for Meta, Google, TikTok and YouTube. ROAS, CTR, targeting, creatives and campaign scaling.",
-    command: "/skill performance-ads",
-    full_command: "Read and apply: /mnt/skills/user/performance-ads/SKILL.md",
-    platforms: ["claude.ai"],
-    tags: ["ads", "meta ads", "google ads", "performance", "campaign", "roas", "cpa"],
-  },
-  {
-    id: "funnel-builder",
-    name: "SKILL-FUNNEL-BUILDER",
-    category: "marketing",
-    description:
-      "Design and optimize sales funnels: landing page, opt-in, VSL, upsell, downsell, checkout. CRO and conversion rate.",
-    command: "/skill funnel-builder",
-    full_command: "Read and apply: /mnt/skills/user/funnel-builder/SKILL.md",
-    platforms: ["claude.ai"],
-    tags: ["funnel", "landing page", "conversion", "cro", "upsell", "checkout"],
-  },
-  {
-    id: "growth-strategy",
-    name: "SKILL-GROWTH-STRATEGY",
-    category: "marketing",
-    description:
-      "Growth strategy, go-to-market, positioning, market analysis and product roadmap. McKinsey meets growth hacker.",
-    command: "/skill growth-strategy",
-    full_command: "Read and apply: /mnt/skills/user/growth-strategy/SKILL.md",
-    platforms: ["claude.ai"],
-    tags: ["growth", "go-to-market", "positioning", "market", "strategy", "saas", "launch"],
-  },
-  {
-    id: "automation-flows",
-    name: "SKILL-AUTOMATION-FLOWS",
-    category: "dev",
-    description:
-      "Design automations in n8n, Zapier or Make. Webhooks, triggers, CRM flows, WhatsApp automation and system integrations.",
-    command: "/skill automation-flows",
-    full_command: "Read and apply: /mnt/skills/user/automation-flows/SKILL.md",
-    platforms: ["claude.ai", "Claude Code"],
-    tags: ["automation", "n8n", "zapier", "webhook", "whatsapp", "crm", "integration"],
-  },
-  {
-    id: "frontend-design",
-    name: "SKILL-FRONTEND-DESIGN",
-    category: "dev",
-    description:
-      "Production-grade frontend interfaces: React components, landing pages, dashboards. Design system, responsive, premium UI.",
-    command: "/skill frontend-design",
-    full_command: "Read and apply: /mnt/skills/public/frontend-design/SKILL.md",
-    platforms: ["claude.ai", "Claude Code", "Codex"],
-    tags: ["frontend", "react", "ui", "design", "landing page", "dashboard", "component"],
-  },
-  {
-    id: "data-decision",
-    name: "SKILL-DATA-DECISION",
-    category: "marketing",
-    description:
-      "Analyze performance metrics for strategic decisions. LTV, CAC, ROAS, ROI, cohort analysis, funnel diagnostics.",
-    command: "/skill data-decision",
-    full_command: "Read and apply: /mnt/skills/user/data-decision/SKILL.md",
-    platforms: ["claude.ai"],
-    tags: ["data", "metrics", "ltv", "cac", "roas", "roi", "analysis", "performance"],
-  },
-];
+// Auto-load every skill.json under /skills at build time.
+const skillModules = import.meta.glob<Skill>("/skills/*/*/skill.json", {
+  eager: true,
+  import: "default",
+});
+
+export const SKILLS: Skill[] = Object.values(skillModules).sort((a, b) =>
+  a.name.localeCompare(b.name)
+);
 
 export interface ElicitationQuestion {
   id: string;
